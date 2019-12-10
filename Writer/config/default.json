@@ -1,0 +1,12 @@
+{
+  "nats": {
+    "url": "nats://localhost:4222",
+    "subject": "local-dev"
+  },
+  "http": {
+    "port": 4333
+  },
+  "data-processor": {
+    "folderToSave": "data"
+  }
+}
