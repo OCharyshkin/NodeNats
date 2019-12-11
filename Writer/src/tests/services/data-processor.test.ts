@@ -11,11 +11,13 @@ describe('Data Processor', () => {
 
     const config = new DataProcessorConfig('test');
     const fileWriter = new FileWriterStub();
-    const dataProcessor = new DataProcessor(config, fileWriter, new DataConverter());
+    let dataProcessor: DataProcessor;
 
     const convertDataPortion = (portion: DataPortion) => JSON.stringify(portion);
 
     beforeEach(() => {
+
+        dataProcessor = new DataProcessor(config, fileWriter, new DataConverter());
         fileWriter.init();
     });
 
