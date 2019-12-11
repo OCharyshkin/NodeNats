@@ -1,4 +1,6 @@
-class DataConverter {
+import IDataConverter from "./data-converter.interface";
+
+class DataConverter implements IDataConverter {
 
     private static max_data_length = 20;
 

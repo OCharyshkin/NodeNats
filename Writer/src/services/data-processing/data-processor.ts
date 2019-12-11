@@ -5,8 +5,8 @@ import DataProcessorConfig from "../../models/configs/data-processor-config";
 import DataPortion from "../../models/sending/portions/data-portion";
 import DataType from "../../models/sending/portions/data-type";
 import BodyPayload from "../../models/sending/portions/payloads/body-payload";
-import DataConverter from "./data-converter";
 import SessionChunk from "../../models/sessions/session-chunk";
+import IDataConverter from "./data-converter.interface";
 
 const path = require('path');
 
@@ -14,14 +14,11 @@ class DataProcessor {
 
     private readonly sessionsState: SessionsState;
 
-    private readonly dataConverter: DataConverter;
-
-    constructor(private config: DataProcessorConfig,
-                private readonly fileWriter: IFileWriter) {
+    constructor(private readonly config: DataProcessorConfig,
+                private readonly fileWriter: IFileWriter,
+                private readonly dataConverter: IDataConverter) {
 
         this.sessionsState = new SessionsState();
-
-        this.dataConverter = new DataConverter();
     }
 
     async process(chunk: string) {

@@ -24,7 +24,6 @@ describe('Sender service', () => {
 
     describe('Sending via Channel', () => {
 
-
         it('Three portions sent', async () => {
 
             const dataToSend = new DataToSend(ChannelType.nats, 'test');
@@ -101,7 +100,6 @@ describe('Sender service', () => {
 
             expect(sentPortions[2].sequence).toBe(1);
             expect((<BodyPayload>sentPortions[2].payload).data).toBe('test-data2');
-
         });
 
     });
