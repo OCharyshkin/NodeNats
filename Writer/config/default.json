@@ -7,6 +7,6 @@
     "port": 4333
   },
   "data-processor": {
-    "folderToSave": "data"
+    "folderToSave": "test-storage"
   }
 }
