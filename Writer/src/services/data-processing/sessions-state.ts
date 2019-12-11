@@ -7,9 +7,9 @@ const path = require('path');
 
 class SessionsState {
 
-    private readonly sessions: any = {};
+    private readonly sessions: Map<string, Session> = new Map<string, Session>();
 
-    public getSession(portion: DataPortion):  Session{
+    public getSession(portion: DataPortion): Session {
 
         const session = this.getInnerSession(portion);
 
@@ -23,20 +23,21 @@ class SessionsState {
         return session;
     }
 
-    private getInnerSession(portion: DataPortion):  Session {
+    private getInnerSession(portion: DataPortion): Session {
 
-        if (this.sessions[portion.sessionId]) {
-            return this.sessions[portion.sessionId];
+        if (this.sessions.has(portion.sessionId)) {
+            return <Session>this.sessions.get(portion.sessionId);
         }
 
         const session = new Session(portion.sessionId);
-        this.sessions[portion.sessionId] = session;
+        this.sessions.set(portion.sessionId, session);
 
         return session;
     }
 
     public finishSession(session: Session) {
-        delete this.sessions[session.id];
+        
+        this.sessions.delete(session.id);
     }
 }
 
