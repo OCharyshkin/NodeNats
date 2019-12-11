@@ -1,4 +1,4 @@
-import IChanelSender from "./chanel-sender.interface";
+import IChannelSender from "./channel-sender.interface";
 import SendingResult from "../../models/sending/sending-result";
 import NatsConfig from "../../models/configs/nats-config";
 import DataPortion from "../../models/sending/portions/data-portion";
@@ -6,7 +6,7 @@ import {Client} from "nats";
 
 const NATS = require('nats');
 
-class NatsBufferChanelSender implements IChanelSender {
+class NatsBufferChannelSender implements IChannelSender {
 
     private natsClient: Client | null = null;
 
@@ -36,4 +36,4 @@ class NatsBufferChanelSender implements IChanelSender {
 
 }
 
-export default NatsBufferChanelSender;
+export default NatsBufferChannelSender;

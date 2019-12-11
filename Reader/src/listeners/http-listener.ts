@@ -6,7 +6,7 @@ const http = require('http');
 class HttpListener {
 
 
-    constructor(public config: HttpConfig) {
+    constructor(private config: HttpConfig) {
     }
 
     init() {

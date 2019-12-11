@@ -1,8 +1,8 @@
-import DataChanel from "./data-chanel";
+import ChannelType from "./channel-type";
 
 class DataToSend {
 
-    constructor(public chanel: DataChanel, public fileName: string) {
+    constructor(public channel: ChannelType, public fileName: string) {
     }
 }
 

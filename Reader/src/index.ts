@@ -1,13 +1,11 @@
-import DataSender from "./services/data-sender";
 import DataToSend from "./models/sending/data-to-send";
-import ChanelSenderProvider from "./services/chanel-senders/chanel-sender-provider";
 import {IncomingMessage, ServerResponse} from "http";
+import DataSenderSupport from "./support/data-sender-support";
 
 const http = require('http');
 const config = require('config');
 
-const chanelSenderProvider = new ChanelSenderProvider();
-const sender = new DataSender(chanelSenderProvider);
+const sender = DataSenderSupport.init(config);
 
 const server = http.createServer((request: IncomingMessage, response: ServerResponse) => {
 
@@ -23,9 +21,9 @@ const server = http.createServer((request: IncomingMessage, response: ServerResp
 
         const jsonBody = JSON.parse(body);
 
-        const dataToSend = new DataToSend(jsonBody.chanel, jsonBody.fileName);
+        const dataToSend = new DataToSend(jsonBody.channel, jsonBody.fileName);
 
-        sender.sendAsync(dataToSend);
+        sender.send(dataToSend);
     });
 
 });
