@@ -17,22 +17,22 @@ class NatsChannelSender implements IChannelSender {
 
         const encodedData = JSON.stringify(dataPortion);
 
+        const client = NATS.connect({url: this.config.url});
+
         return new Promise<SendingResult>((res, rej) => {
+
+            client.on('error', (err: any) => rej(err));
 
             const publishCb = () => {
 
+                client.close();
                 res(new SendingResult());
             };
 
-            this.getNatsClient()
-                .publish(this.config.subject, encodedData, publishCb);
+            client.publish(this.config.subject, encodedData, publishCb);
         });
     }
 
-    private getNatsClient(): Client {
-
-        return this.natsClient ?? (this.natsClient = NATS.connect({url: this.config.url}));
-    }
 
 }
 

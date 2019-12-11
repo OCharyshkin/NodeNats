@@ -20,8 +20,16 @@ class WsChannelSender implements IChannelSender{
             const client = new WebSocketClient();
 
             client.on('connect', (connection: any) => {
-                connection.sendUTF(encodedData);
-                res(new SendingResult());
+                connection.sendUTF(encodedData, (err: any) => {
+                    connection.close();
+
+                    if (err) {
+                        rej(err);
+                        return;
+                    }
+
+                    res(new SendingResult());
+                });
             });
 
             client.on('connectFailed', function(error: any) {
