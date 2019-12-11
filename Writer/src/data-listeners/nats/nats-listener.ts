@@ -14,7 +14,7 @@ class NatsListener implements IDataListener {
 
         natsClient.subscribe(this.config.subject, (chunk: string) => {
 
-            this.dataProcessor.processAsync(chunk);
+            this.dataProcessor.process(chunk);
         });
     }
 }

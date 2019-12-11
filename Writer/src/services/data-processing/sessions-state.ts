@@ -36,7 +36,7 @@ class SessionsState {
     }
 
     public finishSession(session: Session) {
-        
+
         this.sessions.delete(session.id);
     }
 }

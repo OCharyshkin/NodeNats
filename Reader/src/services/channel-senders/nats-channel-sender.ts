@@ -6,7 +6,7 @@ import {Client} from "nats";
 
 const NATS = require('nats');
 
-class NatsBufferChannelSender implements IChannelSender {
+class NatsChannelSender implements IChannelSender {
 
     private natsClient: Client | null = null;
 
@@ -36,4 +36,4 @@ class NatsBufferChannelSender implements IChannelSender {
 
 }
 
-export default NatsBufferChannelSender;
+export default NatsChannelSender;

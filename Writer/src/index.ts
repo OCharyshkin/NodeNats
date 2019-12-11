@@ -8,4 +8,4 @@ const config = require('config');
 const dataProcessor = new DataProcessor(config.get('data-processor'), new FileWriter());
 
 (new NatsListener(config.get('nats'), dataProcessor)).init();
-(new WebsocketListener(config.get('http'))).init();
+(new WebsocketListener(config.get('http'), dataProcessor)).init();

@@ -24,7 +24,7 @@ class DataProcessor {
         this.dataConverter = new DataConverter();
     }
 
-    async processAsync(chunk: string) {
+    async process(chunk: string) {
         const portion: DataPortion = JSON.parse(chunk);
 
         const session = this.sessionsState.getSession(portion);

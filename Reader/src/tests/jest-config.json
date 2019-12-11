@@ -1,0 +1,22 @@
+{
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "json",
+    "svg",
+    "png",
+    "gif"
+  ],
+  "testEnvironment": "node",
+  "transform": {
+    "^.+\\.vue$": "vue-jest",
+    ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":
+    "jest-transform-stub",
+    "^.+\\.(ts|jsx)?$": "babel-jest"
+  },
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+  ]
+}
