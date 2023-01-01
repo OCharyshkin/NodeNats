@@ -22,7 +22,7 @@
     "typescript": "^3.7.3"
   },
   "dependencies": {
-    "config": "^3.2.4",
+    "config": "^3.3.8",
     "nats": "^1.3.2",
     "websocket": "^1.0.31"
   }
